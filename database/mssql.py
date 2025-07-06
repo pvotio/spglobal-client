@@ -86,7 +86,7 @@ class MSSQLDatabase(object):
             except Exception as e:
                 logger.error(f"Error on deleting {table_name} rows: {e}")
 
-        custom = {"desc": "varchar(1024)"}
+        custom = {}
 
         for column in df.columns.tolist():
             if "timestamp" in column.lower() or "date" in column.lower():
