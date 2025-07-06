@@ -20,7 +20,7 @@ class SPGlobal:
         self.urls = [
             f"{self.BASE_URL}{id}"
             for id in [_["id"] for _ in json.load(open("./scraper/tickers.json", "r"))]
-        ][:10]
+        ]
         self.countries = {
             _["country_name"]: _["country_iso3"]
             for _ in json.load(open("./scraper/countries.json", "r"))
@@ -34,7 +34,6 @@ class SPGlobal:
         logger.info("Fetched %d Tickers", len(self.urls))
         self.start_workers()
         logger.info("All processes and threads have completed")
-        print(self.result)
         return dict(self.result)
 
     def start_workers(self):
